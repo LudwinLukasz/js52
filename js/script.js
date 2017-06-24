@@ -8,6 +8,7 @@ function getQuote() {
 }
 
 function createTweet(input) {
+	if(input.length) {
 	var data = input[0];
 	var quoteText = $(data.content).text().trim();
 	var quoteAuthor = data.title;
@@ -25,7 +26,8 @@ function createTweet(input) {
 		$('.quote').text(quoteText);
 		$('.author').text("Author: " + quoteAuthor);
 		$('.tweet').attr('href', tweet);
-	}
+	} 
+} else {$('.quote').text("no quote available")}
 }
 $(document).ready(function() {
 	getQuote();
